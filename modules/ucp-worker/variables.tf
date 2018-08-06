@@ -7,9 +7,15 @@ variable "manager_public_dns" {}
 # REQUIRED PARAMETERS
 # You must provide a value for each of these parameters.
 # ---------------------------------------------------------------------------------------------------------------------
-variable "ami_id" {
+variable "linux_ami_id" {
     description = "The ID of the AMI to run in this cluster."
 }
+
+variable "windows_ami_id" {
+    description = "The ID of the AMI to run in this cluster."
+    default = "ami-63f5c688"
+}
+
 variable "vpc_id" {
   description = "The ID of the VPC in which to deploy the UCP cluster"
 }

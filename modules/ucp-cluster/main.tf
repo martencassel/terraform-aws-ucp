@@ -37,7 +37,7 @@ module "ucp-worker" {
   manager_ip = "${module.ucp-manager.first_manager_private_ip}"
   manager_public_dns = "${module.ucp-manager.first_manager_public_dns}"  
 
-  ami_id = "${var.ami_id}"
+  linux_ami_id = "${var.ami_id}"
   vpc_id = "${var.vpc_id}"
 
   package_url = "${var.package_url}"

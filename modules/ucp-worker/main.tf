@@ -6,7 +6,7 @@ resource "null_resource" "example1" {
 
 resource "aws_instance" "ucp_linux_worker" {
     
-    ami = "${var.ami_id}"
+    ami = "${var.linux_ami_id}"
     instance_type = "${var.instance_type}"
     count = "${ var.number_linux_workers == 0 ? 0: var.number_linux_workers}"
     key_name = "${var.ssh_key_name}"
@@ -24,8 +24,7 @@ resource "aws_instance" "ucp_linux_worker" {
 }
 
 resource "aws_instance" "ucp_windows_worker" {
-
-  ami        = "ami-63f5c688"
+  ami        = "${var.windows_ami_id}"
   instance_type = "${var.instance_type}"
   count = "${ var.number_windows_workers == 0 ? 0: var.number_windows_workers}"
   key_name =  "${var.ssh_key_name}"
