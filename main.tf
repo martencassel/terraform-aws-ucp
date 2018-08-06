@@ -7,7 +7,6 @@ terraform {
   required_version = ">= 0.9.3, != 0.9.5"
 }
 
-
 # Configure AWS Provider
 provider "aws" {
   access_key = "${var.access_key}"
@@ -22,15 +21,14 @@ provider "aws" {
 module "manager_servers" {
   source = "./modules/ucp-cluster"
 
-  number_managers = "1"
+  ucp_version = "${var.ucp_version}"
 
-  cluster_name = "ucp-test"
-
+  number_managers = "${var.number_managers}"
+  cluster_name = "${var.cluster_name}"
   instance_type = "t2.lage"
 
-  # RHEL 7.4
-  ami_id = "ami-d74be5b8"
-
+  ami_id = "${var.ami_id}"
+  
   vpc_id     = "${data.aws_vpc.default.id}"
   subnet_ids = "${data.aws_subnet_ids.default.ids}"
 

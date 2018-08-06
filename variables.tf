@@ -15,8 +15,9 @@ variable "ami_id" {
   description = ""
   default     = "ami-d74be5b8"
 }
-variable "version" {
+variable "ucp_version" {
   description = "The ucp version"
+  default = "3.0.0"
 }
 
 variable "package_url" {
@@ -34,6 +35,10 @@ variable "admin_username" {
 variable "admin_password" {
     description = "The superuser password of UCP"
 }
+variable "cluster_name" {
+  description = "The cluster name."
+}
+
 variable "number_managers" {
   description = "The number of managers to deploy."
   default     = 1
@@ -44,7 +49,6 @@ variable "secret_key" {}
 variable "private_key_path" {
   default = "~/aws/terraform.pem"
 }
-
 variable "vpc_id" {
   description = "The ID of the VPC in which nodes will be deployed. Use default VPC if not supplied."
   default = ""
